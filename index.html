@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050810">
+  <meta name="description" content="A tiny universe made for Palak.">
+  <title>somewhere in the universe — for Palak</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky-noise" aria-hidden="true"></div>
+  <canvas id="background-stars" aria-hidden="true"></canvas>
+  <div class="cosmic-decor" aria-hidden="true">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="distant-planet planet-one"><span></span></div>
+    <div class="distant-planet planet-two"><span></span></div>
+    <div class="black-hole"><span class="black-hole-core"></span><span class="black-hole-ring"></span><span class="black-hole-glow"></span></div>
+  </div>
+
+  <main id="experience">
+    <section class="screen screen-intro is-active" id="screen-intro" aria-label="Introduction">
+      <div id="intro-typography" class="glass-message intro-glass-message" role="status" aria-live="polite"></div>
+      <p class="intro-hint" id="intro-hint">a very serious scientific observation: your brain is tiny.</p>
+      <button class="quiet-button skip-intro" id="skip-intro" type="button">skip intro <span aria-hidden="true">↗</span></button>
+      <div class="shooting-star" id="shooting-star" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="screen screen-countdown" id="screen-countdown" aria-label="Birthday countdown" aria-hidden="true">
+      <div class="constellation-wrap" aria-hidden="true">
+        <svg id="scorpius" viewBox="0 0 900 600" role="presentation">
+          <g class="constellation-lines">
+            <path d="M160 150 L245 188 L320 230 L405 258 L475 300 L545 350 L605 395 L650 440 L700 455 L744 425 L765 380 L748 340 L710 320" />
+          </g>
+          <g class="constellation-stars">
+            <circle class="star-point bright" cx="160" cy="150" r="4.2" data-note="Antares — the heart of the Scorpion, glowing red in the real night sky."/>
+            <circle class="star-point" cx="245" cy="188" r="3" data-note="A quiet point in the Scorpion's long, winding body."/>
+            <circle class="star-point" cx="320" cy="230" r="3.3" data-note="Some stars are best found by following the faint ones."/>
+            <circle class="star-point" cx="405" cy="258" r="2.8" data-note="A little cosmic reminder: the best things are rarely straight lines."/>
+            <circle class="star-point bright" cx="475" cy="300" r="4" data-note="Scorpius stretches across the sky like a celestial question mark."/>
+            <circle class="star-point" cx="545" cy="350" r="3.2" data-note="Observation logged: Palak is still the main character."/>
+            <circle class="star-point" cx="605" cy="395" r="3" data-note="A star, a note, and a suspicious amount of affection for a best friend."/>
+            <circle class="star-point bright" cx="650" cy="440" r="4" data-note="The Scorpion's tail curls back toward the dark."/>
+            <circle class="star-point" cx="700" cy="455" r="3" data-note="The universe has a lot of space. This little corner is reserved."/>
+            <circle class="star-point" cx="744" cy="425" r="3.1" data-note="Tiny star, important job."/>
+            <circle class="star-point bright" cx="765" cy="380" r="4.1" data-note="A final bright point before the Scorpion's sting."/>
+            <circle class="star-point" cx="748" cy="340" r="2.8" data-note="The sky is full of stories that take a while to notice."/>
+            <circle class="star-point" cx="710" cy="320" r="3" data-note="Secret astronomer's note: you're doing great. Keep going."/>
+          </g>
+        </svg>
+      </div>
+
+      <header class="countdown-heading">
+        <p class="eyebrow">EK AUR SAAL MAUT KE PASS</p>
+        <h1 id="countdown-heading">woo hoo, someone's birthday ♡</h1>
+        <p class="heading-subtitle">somewhere, someone is studying and we are doing THIS.</p>
+      </header>
+
+      <div class="countdown-core" id="countdown-core">
+        <p class="micro-label">COUNTING DOWN TO YOUR DAY</p>
+        <h2>Your Birthday is in: </h2>
+        <div class="countdown" id="countdown" aria-label="Time until Palak's birthday">
+          <div><strong id="days">000</strong><span>days</span></div>
+          <i aria-hidden="true">:</i>
+          <div><strong id="hours">00</strong><span>hours</span></div>
+          <i aria-hidden="true">:</i>
+          <div><strong id="minutes">00</strong><span>minutes</span></div>
+          <i aria-hidden="true">:</i>
+          <div><strong id="seconds">00</strong><span>seconds</span></div>
+        </div>
+        <p class="countdown-footnote">20 NOV · 00:00 · INDIA STANDARD TIME</p>
+      </div>
+
+      <div class="birthday-mode" id="birthday-mode" hidden>
+        <p class="birthday-kicker">OKAY IT IS OFFICIALLY YOUR DAY.</p>
+        <h2>IT'S PALAK DAY. ♡</h2>
+        <p>WOOOO HOOOO. ISTG IF YOU CRY ON YOUR BIRTHDAY THIS YEAR 😭</p>
+      </div>
+
+      <aside class="observation-note" id="observation-note" hidden aria-live="polite">
+        <button class="note-close" id="close-observation" type="button" aria-label="Close observation">×</button>
+        <p class="note-label">FIELD NOTE <span>·</span> <span id="note-index">01</span></p>
+        <p id="observation-text"></p>
+      </aside>
+
+<div class="sticker-placeholder" aria-label="Shinchan sticker">
+  <img src="shinchan.png" alt="Shinchan" class="shinchan-image">
+</div>
+      </div>
+
+      <div class="screen-controls screen-two-controls">
+        <button class="quiet-button" id="back-to-intro" type="button"><span aria-hidden="true">←</span> back</button>
+        <button class="quiet-button secret-link" id="ordinary-secret" type="button"><span aria-hidden="true">✦</span> psst..</button>
+        <button class="quiet-button" id="to-letter" type="button">the letter <span aria-hidden="true">↗</span></button>
+      </div>
+      <button class="birthday-secret quiet-button" id="birthday-secret" type="button" hidden>✨ one more cosmic secret</button>
+    </section>
+
+    <section class="screen screen-letter" id="screen-letter" aria-label="A message for Palak" aria-hidden="true">
+      <div class="letter-corner-star" aria-hidden="true">✧</div>
+      <div id="letter-typography" class="glass-message letter-glass-message" role="status" aria-live="polite"></div>
+      <p class="letter-caption">Somethings are better understod than said no?.</p>
+      <button class="quiet-button reveal-letter" id="reveal-letter" type="button"> ↗</button>
+
+      <button class="moon-button" id="moon-button" type="button" aria-label="Reveal the hidden PALAKUS MAXIMUS constellation" aria-expanded="false">
+        <svg viewBox="0 0 100 100" role="img" aria-label="A softly glowing crescent moon">
+          <defs>
+            <mask id="crescent-mask">
+              <rect width="100" height="100" fill="black"/>
+              <circle cx="46" cy="48" r="31" fill="white"/>
+              <circle cx="61" cy="36" r="29" fill="black"/>
+            </mask>
+            <radialGradient id="moon-glow">
+              <stop offset="0" stop-color="#f4f8ff" stop-opacity=".25"/>
+              <stop offset="1" stop-color="#a9d5ff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="48" cy="48" r="48" fill="url(#moon-glow)"/>
+          <circle cx="46" cy="48" r="31" fill="#dceaff" mask="url(#crescent-mask)"/>
+          <circle cx="38" cy="36" r="2" fill="#fff" opacity=".8"/>
+        </svg>
+        <span class="moon-hint" aria-hidden="true">tap the moon</span>
+      </button>
+
+      <aside class="ordinary-note" id="ordinary-note" hidden aria-live="polite">
+        <button class="note-close" id="close-ordinary" type="button" aria-label="Dismiss secret">×</button>
+        <p class="note-label">CLASSIFIED PALAK DATA</p>
+        <p id="ordinary-message"></p>
+      </aside>
+
+      <div class="palakus-reveal" id="palakus-reveal" hidden aria-live="polite">
+        <div class="palakus-sky">
+          <svg id="palakus-constellation" viewBox="0 0 480 300" role="img" aria-label="The PALAKUS MAXIMUS constellation">
+            <g class="palakus-lines">
+              <path d="M54 190 L100 125 L153 154 L190 82 L244 112 L285 58 L320 120 L375 102 L420 160 L354 196 L300 228 L244 188 L190 225 L153 154"/>
+            </g>
+            <g class="palakus-stars">
+              <circle cx="54" cy="190" r="4"/><circle cx="100" cy="125" r="3"/><circle cx="153" cy="154" r="5"/>
+              <circle cx="190" cy="82" r="3.5"/><circle cx="244" cy="112" r="4"/><circle cx="285" cy="58" r="5"/>
+              <circle cx="320" cy="120" r="3.2"/><circle cx="375" cy="102" r="4.2"/><circle cx="420" cy="160" r="5"/>
+              <circle cx="354" cy="196" r="3"/><circle cx="300" cy="228" r="4"/><circle cx="244" cy="188" r="3.5"/><circle cx="190" cy="225" r="4"/>
+            </g>
+          </svg>
+        </div>
+        <div class="palakus-copy">
+          <p class="eyebrow">UNEXPECTED CELESTIAL DISCOVERY</p>
+          <h2 id="palakus-title">✦ PALAKUS MAXIMUS ✦</h2>
+          <p class="palakus-subtitle">A phenomenon of questionable scientific importance.</p>
+          <button class="report-toggle" id="report-toggle" type="button" aria-expanded="false">VIEW SCIENTIFIC REPORT (yes, a very real scientist made this) <span aria-hidden="true">＋</span></button>
+          <div class="scientific-report" id="scientific-report" hidden>
+            <p><b>CLASSIFICATION:</b> <span id="palakus-classification"></span></p>
+            <p><b>KNOWN CHARACTERISTICS:</b> <span id="palakus-characteristics"></span></p>
+            <p><b>DISCOVERY STATUS:</b> <span id="palakus-discovery"></span></p>
+            <p><b>OFFICIAL ASTRONOMICAL NOTE:</b> <span id="palakus-official-note"></span></p>
+            <p class="report-signoff" id="palakus-signoff"></p>
+          </div>
+          <button class="quiet-button close-palakus" id="close-palakus" type="button">close discovery ×</button>
+        </div>
+      </div>
+
+      <div class="screen-controls screen-three-controls">
+        <button class="quiet-button" id="back-to-countdown" type="button"><span aria-hidden="true">←</span> back to countdown</button>
+      </div>
+      <div class="birthday-reveal" id="birthday-reveal" hidden aria-live="polite">
+        <div class="birthday-reveal-stars" aria-hidden="true">✦　·　✧　　✦　·　✦</div>
+        <p class="eyebrow">A NOTE I MEANT TO WRITE</p>
+        <h2 id="birthday-message"></h2>
+        <button class="quiet-button" id="close-birthday-reveal" type="button">back ×</button>
+      </div>
+    </section>
+
+    <section class="screen screen-constellation" id="screen-constellation" aria-label="Palakus Maximus constellation" aria-hidden="true">
+      <div id="constellation-screen-content"></div>
+    </section>
+  </main>
+
+  <div class="toast-note" id="toast-note" hidden role="status">
+    <button class="note-close" id="close-toast" type="button" aria-label="Dismiss note">×</button>
+    <p class="note-label">A SMALL COSMIC UPDATE</p>
+    <p id="toast-message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
