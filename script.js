@@ -1,11 +1,7 @@
-/* ============================================================
-   PALAK / BROMINE — CONTENT & VISUAL CONFIGURATION
-   Change the words in SITE_CONTENT to personalise the experience.
-   The animation and date logic below can stay exactly as they are.
-   ============================================================ */
+
 
 const SITE_CONTENT = {
-  // Screen 1: star-lettering intro. Use \n if you want to force a line break.
+  // Screen 1: star-lettering intro. 
   introText: "I heard someone's birthday is a day closer MUAHAHAH😭✌️",
 
   // Screen 2: heading and constellation observation notes.
@@ -148,7 +144,7 @@ const SITE_CONFIG = {
     rafId = 0;
   }
 
-  // --- Readable glass typography (no particle text, so mobile stays crisp) ----
+  // --- Readable glass typography
   class GlassMessage {
     constructor(element, text) {
       this.element = element;
@@ -224,9 +220,7 @@ const SITE_CONFIG = {
   $("#screen-constellation").appendChild(constellationBack);
   $("#reveal-letter").addEventListener("click", () => letterTypography.revealNow());
 
-  // --- Birthday logic: always calculated against Asia/Kolkata --------------
-  // India Standard Time is UTC+05:30 year-round. We use Intl to obtain the
-  // authoritative Indian calendar date and convert the target midnight to UTC.
+.
   function indianDateParts(date = new Date()) {
     const parts = new Intl.DateTimeFormat("en-CA", {
       timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit",
