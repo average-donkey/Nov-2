@@ -224,9 +224,6 @@ const SITE_CONFIG = {
   $("#screen-constellation").appendChild(constellationBack);
   $("#reveal-letter").addEventListener("click", () => letterTypography.revealNow());
 
-  // --- Birthday logic: always calculated against Asia/Kolkata --------------
-  // India Standard Time is UTC+05:30 year-round. We use Intl to obtain the
-  // authoritative Indian calendar date and convert the target midnight to UTC.
   function indianDateParts(date = new Date()) {
     const parts = new Intl.DateTimeFormat("en-CA", {
       timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit",
